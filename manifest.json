@@ -1,14 +1,36 @@
 {
-  "manifest_version": 2,
+    "manifest_version": 2,
 
-  "name": "Splitwitter",
-  "description": "This extension will automaticly split up your Tweets and Tweet them.",
-  "version": "0.0.1",
-  "author": "Maarten Paauw & Owain van Brakel",
+    "name": "Splitwitter",
+    "description": "This extension will automaticly split up your Tweets and Tweet them.",
+    "version": "0.0.1",
+    "author": "Maarten Paauw & Owain van Brakel",
 
-  "icons": { "16": "img/icon16.png",
-             "19": "img/icon19.png",
-             "36": "img/icon19.png",
-             "48": "img/icon48.png",
-            "128": "img/icon128.png" }
+    "icons": {
+        "16": "img/icon16.png",
+        "19": "img/icon19.png",
+        "36": "img/icon19.png",
+        "48": "img/icon48.png",
+       "128": "img/icon128.png"
+    },
+
+    "page_action": {
+        "default_icon": {
+            "16": "img/icon16.png",
+            "19": "img/icon19.png",
+            "36": "img/icon19.png",
+            "48": "img/icon48.png",
+           "128": "img/icon128.png"
+        },
+        "default_title": "Splitwitter"
+    },
+
+    "background": {
+        "scripts": ["js/splitwitter.js"]
+    },
+
+    "permissions" : [
+        "tabs",
+        "declarativeContent"
+    ]
 }
