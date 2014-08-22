@@ -22,7 +22,8 @@
             "48": "img/icon48.png",
            "128": "img/icon128.png"
         },
-        "default_title": "Splitwitter"
+        "default_title": "Splitwitter",
+        "default_popup": "html/popup.html"
     },
 
     "background": {
