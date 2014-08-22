@@ -4,7 +4,7 @@ chrome.runtime.onInstalled.addListener(function() {
             {
                 conditions: [
                     new chrome.declarativeContent.PageStateMatcher({
-                        pageUrl: { urlContains: 'twitter' },
+                        pageUrl: { urlContains: 'twitter.com' },
                     })
                 ],
                 actions: [ new chrome.declarativeContent.ShowPageAction() ]
