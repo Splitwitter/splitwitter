@@ -3,7 +3,7 @@
 
   "name": "Splitwitter",
   "description": "This extension will automaticly split up your Tweets and Tweet them.",
-  "version": "0.1",
+  "version": "0.0.1",
   "author": "Maarten Paauw & Owain van Brakel",
 
   "icons": { "16": "img/icon16.png",
