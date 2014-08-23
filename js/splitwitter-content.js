@@ -27,10 +27,10 @@ $(document).ready(function() {
         hashtag: true,
         colorize: true
     }, function(items) {
-        if (items.colorize && items.enabled) {
-            colorizeTwitter();
-        }
         if (items.enabled) {
+            if (items.colorize) {
+                colorizeTwitter();
+            }
             injectCode();
         }
     });

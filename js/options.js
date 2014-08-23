@@ -10,7 +10,7 @@
  * GNU General Public License for more details.
  */
 
-function save_options() {
+function saveOptions() {
     var enabled = document.getElementById("enabled").checked;
     var hashtag = document.getElementById("hashtag").checked;
     var colorize = document.getElementById("colorize").checked;
@@ -28,7 +28,14 @@ function save_options() {
     });
 }
 
-function restore_options() {
+function checkboxState() {
+    var enabled = document.getElementById("enabled").checked;
+
+    document.getElementById("hashtag").disabled = !enabled;
+    document.getElementById("colorize").disabled = !enabled;
+}
+
+function restoreOptions() {
     chrome.storage.sync.get({
         enabled: true,
         hashtag: true,
@@ -39,7 +46,9 @@ function restore_options() {
         document.getElementById('colorize').checked = items.colorize;
     });
 
-    document.getElementById('save').addEventListener('click', save_options);
+    document.getElementById('save').addEventListener('click', saveOptions);
+    document.getElementById('enabled').addEventListener('click', checkboxState);
+
 }
 
-document.addEventListener('DOMContentLoaded', restore_options);
+document.addEventListener('DOMContentLoaded', restoreOptions);
