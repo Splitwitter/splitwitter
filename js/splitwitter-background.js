@@ -36,14 +36,3 @@ function setIcon(tab) {
 }
 
 chrome.tabs.onUpdated.addListener(checkForValidUrl);
-
-/*
- *
- * ADD THIS TO POPUP CODE WHEN USER CLICKS SAVE!
- *
- */
-
-/*chrome.tabs.getSelected(null, function(tab) {
-  var code = 'window.location.reload();';
-  chrome.tabs.executeScript(tab.id, {code: code});
-});*/
