@@ -22,7 +22,7 @@ function save_options() {
     });
 
     chrome.tabs.getSelected(null, function(tab) {
-        if (tab.url.indexOf('twitter.com')  > -1) {
+        if (tab.url.indexOf('twitter.com') > -1) {
             chrome.tabs.reload(tab.id)
         }
     });
