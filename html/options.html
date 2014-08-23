@@ -1,20 +1,32 @@
 <html>
-<head>
-    <title>Options for Splitwitter</title>
-    <script type="text/javascript" src="../js/options.js"></script>
-
-    <style>
-        body {
-            min-width: 150px;
-        }
-    </style>
-</head>
-
-<body>
-    Enable Splitwitter <input type="checkbox" name="enabled" id="enabled">
-    <br /><br />
-    <div id="status"></div>
-    <br />
-    <button id="save">Save</button>
-</body>
+	<head>
+	    <title>Options for Splitwitter</title>
+	    
+	    <!-- JAVASCRIPT -->
+	    <script type="text/javascript" src="../js/options.js"></script>
+	
+		<!-- STYLE -->
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+	</head>
+	
+	<body>
+		<div id="options">
+			<fieldset>
+				<legend>Options</legend>
+				<div class="option">
+					<input type="checkbox" name="enabled" id="enabled">
+					Enable Splitwitter
+				</div>
+				<div class="option">
+					<input type="checkbox" name="hashtag" id="hashtag">
+					Add #splitwitter
+				</div>
+			</fieldset>
+			
+			<hr/>
+			
+			<button id="login">Login with Twitter</button>
+			<button id="save">Save</button>
+		</div>
+	</body>
 </html>
