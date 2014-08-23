@@ -11,6 +11,10 @@
  */
 
 function injectCode() {
+    //TODO: add code
+}
+
+function colorizeTwitter() {
     $(".js-tweet-btn").css({ backgroundColor : '#942686', background : 'rgba(148, 38, 134, 1)' });
     $(".tweet-btn").css({ backgroundColor : '#942686', background : 'rgba(148, 38, 134, 1)' });
     $(".dm-new-button").css({ backgroundColor : '#942686', background : 'rgba(148, 38, 134, 1)', border : 'none' });
@@ -19,7 +23,12 @@ function injectCode() {
 $(document).ready(function() {
     chrome.storage.sync.get({
         enabled: true,
+        hashtag: true,
+        colorize: true
     }, function(items) {
+        if (items.colorize) {
+            colorizeTwitter();
+        }
         if (items.enabled) {
             injectCode();
         }

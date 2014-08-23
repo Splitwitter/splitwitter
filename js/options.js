@@ -13,20 +13,24 @@
 function save_options() {
     var enabled = document.getElementById("enabled").checked;
     var hashtag = document.getElementById("hashtag").checked;
+    var colorize = document.getElementById("colorize").checked;
 
     chrome.storage.sync.set({
         enabled: enabled,
-        hashtag: hashtag
+        hashtag: hashtag,
+        colorize: colorize
     });
 }
 
 function restore_options() {
     chrome.storage.sync.get({
         enabled: true,
-        hashtag: true
+        hashtag: true,
+        colorize: true
     }, function(items) {
         document.getElementById('enabled').checked = items.enabled;
         document.getElementById('hashtag').checked = items.hashtag;
+        document.getElementById('colorize').checked = items.colorize;
     });
 
     document.getElementById('save').addEventListener('click', save_options);

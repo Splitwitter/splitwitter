@@ -20,7 +20,8 @@ function checkForValidUrl(tabId, changeInfo, tab) {
 function setIcon(tab) {
     chrome.storage.sync.get({
         enabled: true,
-        hashtag: true
+        hashtag: true,
+        colorize: true
     }, function(items) {
         if (items.enabled) {
             chrome.pageAction.setIcon({
