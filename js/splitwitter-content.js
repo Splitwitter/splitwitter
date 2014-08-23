@@ -13,7 +13,7 @@
 function injectCode() {
     $(".tweet-counter").removeClass( "tweet-counter" ).addClass( "tweet-counter2" );
     $(".tweet-counter2").html("&#8734;");
-    $(".tweet-counter2").css({ 'background-color' : 'transparent', 'color' : '#8899a6', 'display' : 'inline-block', 'width' : '35px', 'border' : '0', 'padding' : '0 3px', 'position' : 'relative', 'vertical-align' : 'top', 'top' : '7px', 'text-align' : 'right', 'font-size' : '20px', 'text-shadow' : '0 1px 1px rgba(255,255,255,.75' })
+    $(".tweet-counter2").css({ 'background-color' : 'transparent', 'color' : '#8899a6', 'display' : 'inline-block', 'width' : '35px', 'border' : '0', 'padding' : '0 3px', 'position' : 'relative', 'vertical-align' : 'top', 'top' : '7px', 'text-align' : 'right', 'font-size' : '20px', 'text-shadow' : '0 1px 1px rgba(255,255,255,.75', 'font-weight' : '300' });
 }
 
 function colorizeTwitter() {

@@ -51,9 +51,19 @@ button {
     white-space: 1;
 }
 
+#paypal {
+	background-color: #ffae00;
+	border-color: #ffae00;
+}
+
 button:hover {
     background-color: #fff;
     color: #751b69;
+}
+
+button:active {
+	color: #ab519e;
+	border-color: #ab519e;
 }
 
 p {
@@ -68,6 +78,10 @@ a:link, a:visited, a:active, a:hover {
 }
 
 a:hover {
-    border-bottom: solid thin #999;
-    color: #999;
+    border-bottom: solid thin #751b69;
+    color: #751b69;
+}
+
+.white {
+	background: #FF0000 !important;
 }
