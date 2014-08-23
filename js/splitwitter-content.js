@@ -27,7 +27,7 @@ $(document).ready(function() {
         hashtag: true,
         colorize: true
     }, function(items) {
-        if (items.colorize) {
+        if (items.colorize && items.enabled) {
             colorizeTwitter();
         }
         if (items.enabled) {
