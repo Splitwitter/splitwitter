@@ -11,14 +11,16 @@
  */
 
 function injectCode() {
-    //TODO: add code
+    $(".tweet-counter").removeClass( "tweet-counter" ).addClass( "tweet-counter2" );
+    $(".tweet-counter2").html("&#8734;");
+    $(".tweet-counter2").css({ 'background-color' : 'transparent', 'color' : '#8899a6', 'display' : 'inline-block', 'width' : '35px', 'border' : '0', 'padding' : '0 3px', 'position' : 'relative', 'vertical-align' : 'top', 'top' : '7px', 'text-align' : 'right', 'font-size' : '20px', 'text-shadow' : '0 1px 1px rgba(255,255,255,.75' })
 }
 
 function colorizeTwitter() {
-    $(".bird-topbar-etched").css({ color : '#942686' });
-    $(".js-tweet-btn").css({ backgroundColor : '#942686', background : 'rgba(148, 38, 134, 1)' });
-    $(".tweet-btn").css({ backgroundColor : '#942686', background : 'rgba(148, 38, 134, 1)' });
-    $(".dm-new-button").css({ backgroundColor : '#942686', background : 'rgba(148, 38, 134, 1)', border : 'none' });
+    $(".bird-topbar-etched").css({ 'color' : '#942686' });
+    $(".js-tweet-btn").css({ 'backgroundColor ': '#942686', 'background' : 'rgba(148, 38, 134, 1)' });
+    $(".tweet-btn").css({ 'backgroundColor' : '#942686', 'background' : 'rgba(148, 38, 134, 1)' });
+    $(".dm-new-button").css({ 'backgroundColor' : '#942686', 'background' : 'rgba(148, 38, 134, 1)', 'border' : 'none' });
 }
 
 chrome.storage.sync.get({
