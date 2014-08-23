@@ -13,57 +13,57 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 
 body {
-	width: 150px;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 11px;
+    width: 150px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
 }
 
 fieldset {
-	border: #ccc solid thin;
-	border-radius: 2px;
-	margin-bottom: 10px;
+    border: #ccc solid thin;
+    border-radius: 2px;
+    margin-bottom: 10px;
 }
 
 hr {
-	height: 1px;
-	background-color: #ccc;
-	border: none;
-	margin-top: 15px;
-	margin-bottom: 15px;
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 button {
-	width: 100%;
-	padding-top: 6px;
-	margin-top: 2px;
-	padding-bottom: 6px;
-	border-radius: 3px;
-	border: none;
-	background-color: #751b69;
-	border: solid 1px #751b69;
-	color: #fff;
-	cursor: pointer;
-	font-weight: 300;
-	white-space: 1;
+    width: 100%;
+    padding-top: 6px;
+    margin-top: 2px;
+    padding-bottom: 6px;
+    border-radius: 3px;
+    border: none;
+    background-color: #751b69;
+    border: solid 1px #751b69;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 300;
+    white-space: 1;
 }
 
 button:hover {
-	background-color: #fff;
-	color: #751b69;
+    background-color: #fff;
+    color: #751b69;
 }
 
 p {
-	width: 100%;
-	text-align: center;
-	color: #ccc;
+    width: 100%;
+    text-align: center;
+    color: #ccc;
 }
 
 a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: #ccc;
+    text-decoration: none;
+    color: #ccc;
 }
 
 a:hover {
-	border-bottom: solid thin #999;
-	color: #999;
+    border-bottom: solid thin #999;
+    color: #999;
 }
