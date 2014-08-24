@@ -50,6 +50,7 @@
             "*://*.twitter.com/*"
         ],
         "js": ["js/jquery-2.1.1.min.js", "js/splitwitter-content.js"],
+        "css": ["css/twitter.css"],
         "run_at": "document_end"
     }],
 
