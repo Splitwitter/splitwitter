@@ -99,8 +99,6 @@ function restoreOptions() {
         document.getElementById('colorize').checked = items.colorize;
     });
 
-    checkboxEnabled
-
     document.getElementById('save').addEventListener('click', saveOptions);
     document.getElementById('enabled').addEventListener('click', checkboxState);
     document.getElementById('login').addEventListener('click', loginTwitter);
