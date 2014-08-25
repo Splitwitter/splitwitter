@@ -35,7 +35,7 @@ function checkboxState() {
     document.getElementById("colorize").disabled = !enabled;
 }
 
-function checkboxEnabled() {
+function disableCheckboxes() {
     document.getElementById("enabled").disabled = true;
     document.getElementById("hashtag").disabled = true;
     document.getElementById("colorize").disabled = true;
@@ -82,7 +82,7 @@ function restoreOptions() {
         if (items.token != null) {
             $("#loggedIn").show();
         } else {
-            checkboxEnabled();
+            disableCheckboxes();
             $("#notLoggedIn").show();
         }
     });
