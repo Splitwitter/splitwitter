@@ -12,7 +12,7 @@
  
 function injectCode() {
     $(".tweet-counter").removeClass( "tweet-counter" ).addClass( "tweet-counter2" );
-	var cssLink = chrome.extension.getURL("css/inject.css");
+    var cssLink = chrome.extension.getURL("css/inject.css");
     $('<link rel="stylesheet" type="text/css" href="' + cssLink + '" >').appendTo("head");
     $(".tweet-counter2").html("&#8734;");
 }
