@@ -35,6 +35,12 @@ function checkboxState() {
     document.getElementById("colorize").disabled = !enabled;
 }
 
+function checkboxEnabled() {
+    document.getElementById("enabled").disabled = true;
+    document.getElementById("hashtag").disabled = true;
+    document.getElementById("colorize").disabled = true;
+}
+
 function loginTwitter() {
     var cb = new Codebird;
     cb.setConsumerKey(CONSUMER_KEY, CONSUMER_SECRET);
@@ -47,19 +53,18 @@ function loginTwitter() {
                 token: reply.oauth_token,
                 secret: reply.oauth_token_secret
             });
-
-            console.debug(reply.oauth_token);
-            console.debug(reply.oauth_token_secret);
-
-            // stores it
             cb.setToken(reply.oauth_token, reply.oauth_token_secret);
-
-            // gets the authorize screen URL
             cb.__call(
                 "oauth_authorize",
                 {},
                 function (auth_url) {
-                    window.codebird_auth = window.open(auth_url);
+                    chrome.tabs.getSelected(null, function(tab) {
+                        if (tab.url.indexOf('twitter.com') > -1) {
+                            window.codebird_auth = window.open(auth_url);
+                        } else {
+                            window.codebird_auth = window.location.replace(auth_url);
+                        }
+                    });
                 }
             );
         }
@@ -67,6 +72,21 @@ function loginTwitter() {
 }
 
 function restoreOptions() {
+    $("#loggedIn").hide();
+    $("#notLoggedIn").hide();
+
+    chrome.storage.local.get({
+        token: null,
+        secret: null
+    }, function(items) {
+        if (items.token != null) {
+            $("#loggedIn").show();
+        } else {
+            checkboxEnabled();
+            $("#notLoggedIn").show();
+        }
+    });
+
     chrome.storage.sync.get({
         enabled: true,
         hashtag: true,
@@ -79,33 +99,11 @@ function restoreOptions() {
         document.getElementById('colorize').checked = items.colorize;
     });
 
+    checkboxEnabled
+
     document.getElementById('save').addEventListener('click', saveOptions);
     document.getElementById('enabled').addEventListener('click', checkboxState);
     document.getElementById('login').addEventListener('click', loginTwitter);
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
-
-chrome.storage.onChanged.addListener(function(changes, namespace) {
-    for (key in changes) {
-        var storageChange = changes[key];
-        console.log('Storage key "%s" in namespace "%s" changed. ' +
-                    'Old value was "%s", new value is "%s".',
-                    key,
-                    namespace,
-                    storageChange.oldValue,
-                    storageChange.newValue);
-    }
-});
-
-chrome.storage.sync.get({
-    enabled: true,
-    hashtag: true,
-    colorize: true,
-    token: null,
-    secret: null
-}, function(items) {
-    for (key in items) {
-        console.log(key);
-    }
-});

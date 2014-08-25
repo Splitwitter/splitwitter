@@ -60,8 +60,7 @@
 
     "permissions" : [
         "tabs",
-        "storage",
-        "https://api.jublo.net/codebird/oauth/access_token"
+        "storage"
     ],
 
     "web_accessible_resources": [

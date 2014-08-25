@@ -18,6 +18,7 @@
         <title>Options for Splitwitter</title>
 
         <!-- JAVASCRIPT -->
+        <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../js/config/twitter.config"></script>
         <script type="text/javascript" src="../js/library/codebird.js"></script>
         <script type="text/javascript" src="../js/options.js"></script>
@@ -45,6 +46,16 @@
             </fieldset>
 
             <hr/>
+            <div id="loggedIn">
+                You're already logged in!
+                <br />
+                If you're having problems click the login button again!
+                <hr/>
+            </div>
+            <div id="notLoggedIn">
+                You need to login before you can use Splitwitter!
+                <hr/>
+            </div>
 
             <button id="login">Login with Twitter</button>
             <button id="save">Save</button>

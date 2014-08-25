@@ -37,16 +37,4 @@ function setIcon(tab) {
     });
 }
 
-chrome.storage.sync.get({
-    enabled: true,
-    hashtag: true,
-    colorize: true,
-    token: null,
-    secret: null
-}, function(items) {
-    for (key in items) {
-        console.log(key);
-    }
-});
-
 chrome.tabs.onUpdated.addListener(checkForValidUrl);
