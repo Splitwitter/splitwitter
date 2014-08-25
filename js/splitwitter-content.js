@@ -13,10 +13,10 @@
 function injectCode() {
     var cssLink = chrome.extension.getURL("css/inject.css");
     $('<link rel="stylesheet" type="text/css" href="' + cssLink + '" >').appendTo("head");
-    
+
     $(".tweet-counter").removeClass( "tweet-counter" ).addClass( "tweet-counter2" );
     $(".tweet-counter2").html("&#8734;");
-    
+
     $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled").addClass("splitwitter-action");
 }
 
@@ -25,17 +25,26 @@ function colorizeTwitter() {
     $('<link rel="stylesheet" type="text/css" href="' + cssLink + '" >').appendTo("head");
 }
 
-chrome.storage.sync.get({
-    enabled: true,
-    hashtag: true,
-    colorize: true,
+chrome.storage.local.get({
     token: null,
     secret: null
-}, function(items) {
-    if (items.enabled) {
-        if (items.colorize) {
-            colorizeTwitter();
-        }
-        injectCode();
+}, function(item) {
+    if (item.token != null) {
+        chrome.storage.sync.get({
+            enabled: true,
+            hashtag: true,
+            colorize: true,
+            token: null,
+            secret: null
+        }, function(items) {
+            if (items.enabled) {
+                if (items.colorize) {
+                    colorizeTwitter();
+                }
+                injectCode();
+            }
+        });
     }
 });
+
+
