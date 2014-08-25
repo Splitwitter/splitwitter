@@ -10,8 +10,16 @@
  * GNU General Public License for more details.
  */
 
-.dm-message {
+.sent .dm-message {
     background-color: #751b69 !important;
+}
+
+.dm-caret-outer {
+    border-left-color: #751b69 !important;
+}
+
+.dm-caret-inner {
+    border-left-color: #751b69 !important;
 }
 
 .bird-topbar-etched {
