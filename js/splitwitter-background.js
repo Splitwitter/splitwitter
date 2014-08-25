@@ -35,6 +35,17 @@ function setIcon(tab) {
             });
         }
     });
+
+    chrome.storage.local.get({
+        token: null,
+        secret: null
+    }, function(items) {
+        if (items.token == null) {
+            chrome.pageAction.setIcon({
+                path:"../img/icon38_grey.png", tabId:tab.id
+            });
+        }
+    });
 }
 
 chrome.tabs.onUpdated.addListener(checkForValidUrl);
