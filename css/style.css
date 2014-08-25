@@ -57,8 +57,8 @@ button:hover {
 }
 
 button:active {
-	color: #ab519e;
-	border-color: #ab519e;
+    color: #ab519e;
+    border-color: #ab519e;
 }
 
 p {
@@ -75,4 +75,12 @@ a:link, a:visited, a:active, a:hover {
 a:hover {
     border-bottom: solid thin #751b69;
     color: #751b69;
+}
+
+#loggedIn {
+    display: none;
+}
+
+#notLoggedIn {
+    display: none;
 }

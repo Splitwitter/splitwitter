@@ -72,9 +72,6 @@ function loginTwitter() {
 }
 
 function restoreOptions() {
-    $("#loggedIn").hide();
-    $("#notLoggedIn").hide();
-
     chrome.storage.local.get({
         token: null,
         secret: null
