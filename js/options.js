@@ -35,6 +35,11 @@ function checkboxState() {
     document.getElementById("colorize").disabled = !enabled;
 }
 
+function loginTwitter() {
+    var cb = new Codebird;
+    cb.setConsumerKey(CONSUMER_KEY, CONSUMER_SECRET);
+}
+
 function restoreOptions() {
     chrome.storage.sync.get({
         enabled: true,
@@ -48,7 +53,7 @@ function restoreOptions() {
 
     document.getElementById('save').addEventListener('click', saveOptions);
     document.getElementById('enabled').addEventListener('click', checkboxState);
-
+    document.getElementById('login').addEventListener('click', loginTwitter);
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
