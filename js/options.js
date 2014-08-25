@@ -38,13 +38,41 @@ function checkboxState() {
 function loginTwitter() {
     var cb = new Codebird;
     cb.setConsumerKey(CONSUMER_KEY, CONSUMER_SECRET);
+
+    cb.__call(
+        "oauth_requestToken",
+        {oauth_callback: "oob"},
+        function (reply) {
+            chrome.storage.sync.set({
+                token: reply.oauth_token,
+                secret: reply.oauth_token_secret
+            });
+
+            console.debug(reply.oauth_token);
+            console.debug(reply.oauth_token_secret);
+
+            // stores it
+            cb.setToken(reply.oauth_token, reply.oauth_token_secret);
+
+            // gets the authorize screen URL
+            cb.__call(
+                "oauth_authorize",
+                {},
+                function (auth_url) {
+                    window.codebird_auth = window.open(auth_url);
+                }
+            );
+        }
+    );
 }
 
 function restoreOptions() {
     chrome.storage.sync.get({
         enabled: true,
         hashtag: true,
-        colorize: true
+        colorize: true,
+        token: null,
+        secret: null
     }, function(items) {
         document.getElementById('enabled').checked = items.enabled;
         document.getElementById('hashtag').checked = items.hashtag;
@@ -57,3 +85,27 @@ function restoreOptions() {
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
+
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+    for (key in changes) {
+        var storageChange = changes[key];
+        console.log('Storage key "%s" in namespace "%s" changed. ' +
+                    'Old value was "%s", new value is "%s".',
+                    key,
+                    namespace,
+                    storageChange.oldValue,
+                    storageChange.newValue);
+    }
+});
+
+chrome.storage.sync.get({
+    enabled: true,
+    hashtag: true,
+    colorize: true,
+    token: null,
+    secret: null
+}, function(items) {
+    for (key in items) {
+        console.log(key);
+    }
+});

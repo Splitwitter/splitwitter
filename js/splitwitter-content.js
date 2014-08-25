@@ -9,7 +9,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
- 
+
 function injectCode() {
     $(".tweet-counter").removeClass( "tweet-counter" ).addClass( "tweet-counter2" );
     var cssLink = chrome.extension.getURL("css/inject.css");
@@ -25,7 +25,9 @@ function colorizeTwitter() {
 chrome.storage.sync.get({
     enabled: true,
     hashtag: true,
-    colorize: true
+    colorize: true,
+    token: null,
+    secret: null
 }, function(items) {
     if (items.enabled) {
         if (items.colorize) {
@@ -33,4 +35,4 @@ chrome.storage.sync.get({
         }
         injectCode();
     }
-});	
+});

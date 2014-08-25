@@ -51,15 +51,21 @@
         ],
         "js": ["js/jquery-2.1.1.min.js", "js/splitwitter-content.js"],
         "run_at": "document_end"
+    },
+    {
+        "matches": ["https://api.twitter.com/oauth/authorize"],
+        "js": ["js/config/twitter.config", "js/library/codebird.js", "js/authKey.js"],
+        "run_at": "document_end"
     }],
 
     "permissions" : [
         "tabs",
-        "storage"
+        "storage",
+        "https://api.jublo.net/codebird/oauth/access_token"
     ],
-    
+
     "web_accessible_resources": [
-    	"css/colorize.css",
-    	"css/inject.css"
+        "css/colorize.css",
+        "css/inject.css"
     ]
 }

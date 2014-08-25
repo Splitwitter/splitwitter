@@ -21,7 +21,9 @@ function setIcon(tab) {
     chrome.storage.sync.get({
         enabled: true,
         hashtag: true,
-        colorize: true
+        colorize: true,
+        token: undefined,
+        secret: undefined
     }, function(items) {
         if (items.enabled) {
             chrome.pageAction.setIcon({
@@ -34,5 +36,17 @@ function setIcon(tab) {
         }
     });
 }
+
+chrome.storage.sync.get({
+    enabled: true,
+    hashtag: true,
+    colorize: true,
+    token: null,
+    secret: null
+}, function(items) {
+    for (key in items) {
+        console.log(key);
+    }
+});
 
 chrome.tabs.onUpdated.addListener(checkForValidUrl);
