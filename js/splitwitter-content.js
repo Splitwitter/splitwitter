@@ -17,9 +17,7 @@ function injectCode() {
     $(".tweet-counter").removeClass( "tweet-counter" ).addClass( "tweet-counter2" );
     $(".tweet-counter2").html("&#8734;");
     
-    $(".btn").removeAttr("disabled");
-    $(".btn").removeClass("tweet-action");
-    $(".btn").removeClass("disabled");
+    $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled").addClass("splitwitter-action");
 }
 
 function colorizeTwitter() {
