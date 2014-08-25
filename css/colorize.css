@@ -11,5 +11,25 @@
  */
 
 .dm-message {
-	background-color: #751b69 !important;
+    background-color: #751b69 !important;
+}
+
+.bird-topbar-etched {
+    color: #942686 !important;
+}
+
+.js-tweet-btn {
+    background-color: #942686 !important;
+    background: rgba(148, 38, 134, 1) !important;
+}
+
+.tweet-btn {
+    background-color: #942686 !important;
+    background: rgba(148, 38, 134, 1) !important;
+}
+
+.dm-new-button {
+    background-color: #942686 !important;
+    background: rgba(148, 38, 134, 1) !important;
+    border: none !important;
 }
