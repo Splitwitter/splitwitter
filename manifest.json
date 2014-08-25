@@ -59,6 +59,7 @@
     ],
     
     "web_accessible_resources": [
-    	"css/twitter.css"
+    	"css/colorize.css",
+    	"css/inject.css"
     ]
 }
