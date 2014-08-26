@@ -49,6 +49,7 @@ button {
     cursor: pointer;
     font-weight: 300;
     white-space: 1;
+    line-height: 15px;
 }
 
 button:hover {
@@ -83,4 +84,10 @@ a:hover {
 
 #notLoggedIn {
     display: none;
+}
+
+#loggedIn, #notLoggedIn {
+    width: 150px;
+    text-align: center;
+    line-height: 15px;
 }

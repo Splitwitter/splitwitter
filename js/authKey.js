@@ -6,7 +6,7 @@ chrome.storage.sync.get({
     token: null,
     secret: null
 }, function(items) {
-    // Initialise codebird
+    // Initialize Codebird
     var cb = new Codebird;
     // Set the application keys
     cb.setConsumerKey(CONSUMER_KEY, CONSUMER_SECRET);
