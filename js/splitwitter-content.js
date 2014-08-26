@@ -17,7 +17,8 @@ function injectCode() {
     $(".tweet-counter").removeClass("tweet-counter").addClass("tweet-counter2");
     $(".tweet-counter2").html("&#8734;");
 
-    $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled").addClass("splitwitter-action");
+    $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled");
+    $(".toolbar .tweet-button .btn").addClass("splitwitter-action");
     $(".btn").removeAttr("type");
 
     // Bind on click to the tweet button
