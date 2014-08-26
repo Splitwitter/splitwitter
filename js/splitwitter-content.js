@@ -20,10 +20,10 @@ function injectCode() {
     $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled");
     $(".toolbar .tweet-button .btn").addClass("splitwitter-action");
     $(".btn").removeAttr("type");
-    
+
     // Bind on click to the tweet button
     $(".splitwitter-action").on("click", function() {
-        // Removes the infinitycounter 
+        // Removes the infinitycounter
         $(".tweet-counter2").css("cssText", "display: none !important;");
         // Adds the spinner
         $(".spinner").css("cssText", "display: inline-block !important;");
