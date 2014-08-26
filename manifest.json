@@ -49,7 +49,7 @@
             "*://twitter.com/*",
             "*://*.twitter.com/*"
         ],
-        "js": ["js/jquery-2.1.1.min.js", "js/splitwitter-content.js"],
+        "js": ["js/jquery-2.1.1.min.js", "js/config/twitter.config", "js/library/codebird.js", "js/splitwitter-content.js"],
         "run_at": "document_end"
     },
     {

@@ -12,18 +12,61 @@
 
 function injectCode() {
     var cssLink = chrome.extension.getURL("css/inject.css");
-    $("<link rel='stylesheet' type='text/css' href='" + cssLink + "' >").appendTo('head');
+    $("<link rel='stylesheet' type='text/css' href='" + cssLink + "'>").appendTo('head');
 
     $(".tweet-counter").removeClass("tweet-counter").addClass("tweet-counter2");
     $(".tweet-counter2").html("&#8734;");
 
     $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled").addClass("splitwitter-action");
     $(".btn").removeAttr("type");
+
+    // Bind on click to the tweet button
+    $(".splitwitter-action").on("click", function() {
+        getTweet();
+    });
 }
 
 function colorizeTwitter() {
     var cssLink = chrome.extension.getURL("css/colorize.css");
-    $("<link rel='stylesheet' type='text/css' href='" + cssLink + "' >").appendTo('head');
+    $("<link rel='stylesheet' type='text/css' href='" + cssLink + "'>").appendTo('head');
+}
+
+function getTweet() {
+    // Get the tweet text
+    splitTweet(document.getElementById("tweet-box-mini-home-profile").innerHTML.replace(/<div>/g,"").replace(/<em>/g,"").replace(/<\/em>/g,"").replace(/<\/div>/g,""));
+}
+
+function splitTweet(text) {
+    // Split here and call send tweet for every part
+    // TODO: Spit the tweet
+    sendTweet(text);
+}
+
+function sendTweet(text) {
+    // Initialize Codebird and set our applications keys
+    var cb = new Codebird;
+    cb.setConsumerKey(CONSUMER_KEY, CONSUMER_SECRET);
+
+    // Get our local storage
+    chrome.storage.local.get({
+        token: null,
+        secret: null,
+        screenName: null
+    }, function(items) {
+        // Set the user token
+        cb.setToken(items.token, items.secret);
+
+        cb.__call(
+            "statuses_update",
+            {"status": encodeURIComponent(text)},
+            function (reply) {
+                console.log(reply);
+                // Empty the Tweet box
+                alert("Jeej");
+                document.getElementById("tweet-box-mini-home-profile").innerHTML = "<div></div>";
+            }
+        );
+    });
 }
 
 // Get our local settings
