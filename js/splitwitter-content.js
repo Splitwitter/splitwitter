@@ -21,10 +21,6 @@ function injectCode() {
     $(".toolbar .tweet-button .btn").addClass("splitwitter-action");
     $(".btn").removeAttr("type");
     
-    $(".alert-messages").removeAttr("id");
-    $(".alert-messages").css("cssText", "display: initial !important;");
-    $(".alert-messages .message .message-inside .message-text").html("Your Tweet was posted by Splitwitter!");
-    
     // Bind on click to the tweet button
     $(".splitwitter-action").on("click", function() {
         // Removes the infinitycounter 
@@ -32,7 +28,10 @@ function injectCode() {
         // Adds the spinner
         $(".spinner").css("cssText", "display: inline-block !important;");
         // Adds the popup
-        
+        $(".alert-messages").removeAttr("id");
+        $(".alert-messages").css("cssText", "display: initial !important;");
+        $(".alert-messages .message .message-inside .message-text").html("Your Tweet was posted by Splitwitter!");
+
         getTweet();
     });
 }
