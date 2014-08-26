@@ -26,11 +26,13 @@ function colorizeTwitter() {
     $("<link rel='stylesheet' type='text/css' href='" + cssLink + "' >").appendTo('head');
 }
 
+// Get our local settings
 chrome.storage.local.get({
     token: null,
     secret: null,
     screenName: null
 }, function(item) {
+    // If item token isn't empty the user is logged in
     if (item.token != null) {
         chrome.storage.sync.get({
             enabled: true,
@@ -39,7 +41,9 @@ chrome.storage.local.get({
             token: null,
             secret: null
         }, function(items) {
+            // If Splitwitter is enabled inject our code
             if (items.enabled) {
+                // If colorize is enabled inject our css
                 if (items.colorize) {
                     colorizeTwitter();
                 }

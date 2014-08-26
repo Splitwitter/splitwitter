@@ -11,13 +11,16 @@
  */
 
 function checkForValidUrl(tabId, changeInfo, tab) {
+    // Check if the open tab is twitter
     if (tab.url.indexOf("twitter.com") > -1) {
+        // Set the Splitwitter logo in the URL bar
         setIcon(tab);
         chrome.pageAction.show(tabId);
     }
 };
 
 function setIcon(tab) {
+    // Get our local settings
     chrome.storage.sync.get({
         enabled: true,
         hashtag: true,
@@ -25,6 +28,7 @@ function setIcon(tab) {
         token: undefined,
         secret: undefined
     }, function(items) {
+        // If Splitwitter is enabled show the purple icons otherwise show the grey icon
         if (items.enabled) {
             chrome.pageAction.setIcon({
                 path:"../img/icon38.png", tabId:tab.id
@@ -36,11 +40,13 @@ function setIcon(tab) {
         }
     });
 
+    // Get our local settings
     chrome.storage.local.get({
         token: null,
         secret: null,
         screenName: null
     }, function(items) {
+        // If the user isn't logged in show the grey icon
         if (items.token == null) {
             chrome.pageAction.setIcon({
                 path:"../img/icon38_grey.png", tabId:tab.id
@@ -49,4 +55,5 @@ function setIcon(tab) {
     });
 }
 
+// Add on update listener
 chrome.tabs.onUpdated.addListener(checkForValidUrl);
