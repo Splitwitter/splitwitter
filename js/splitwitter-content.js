@@ -79,6 +79,10 @@ function sendTweet(text) {
                 console.log(reply);
                 // Empty the Tweet box
                 document.getElementById("tweet-box-mini-home-profile").innerHTML = "<div></div>";
+                // Fade out popup
+                $(".alert-messages").delay(2000).slideUp(function() {
+                    $(".alert-messages").css("cssText", "display: none !important;");
+                });
                 // Display the infinity counter.
                 $(".tweet-counter2").css("cssText", "display: initial !important;");
                 // Hides the spinner
