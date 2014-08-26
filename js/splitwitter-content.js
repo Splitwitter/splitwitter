@@ -11,13 +11,18 @@
  */
 
 function injectCode() {
+    // Adds Injection css
     var cssLink = chrome.extension.getURL("css/inject.css");
     $("<link rel='stylesheet' type='text/css' href='" + cssLink + "'>").appendTo('head');
 
+    // Replace the character counter with infinity.
     $(".tweet-counter").removeClass("tweet-counter").addClass("tweet-counter2");
     $(".tweet-counter2").html("&#8734;");
 
+    // Removes the tweet-action and enables the button.
     $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled");
+    
+    // Adds our own action class.
     $(".toolbar .tweet-button .btn").addClass("splitwitter-action");
     $(".btn").removeAttr("type");
 
@@ -27,7 +32,7 @@ function injectCode() {
         $(".tweet-counter2").css("cssText", "display: none !important;");
         // Adds the spinner
         $(".spinner").css("cssText", "display: inline-block !important;");
-        // Adds the popup
+        // Adds removes the id and add some css.
         $(".alert-messages").removeAttr("id");
         $(".alert-messages").css("cssText", "display: initial !important;");
         $(".alert-messages .message .message-inside .message-text").html("Your Tweet was posted by Splitwitter!");
@@ -74,6 +79,10 @@ function sendTweet(text) {
                 console.log(reply);
                 // Empty the Tweet box
                 document.getElementById("tweet-box-mini-home-profile").innerHTML = "<div></div>";
+                // Display the infinity counter.
+                $(".tweet-counter2").css("cssText", "display: initial !important;");
+                // Hides the spinner
+                $(".spinner").css("cssText", "display: none !important;");
             }
         );
     });
