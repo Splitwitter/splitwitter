@@ -20,9 +20,11 @@ function injectCode() {
     $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled");
     $(".toolbar .tweet-button .btn").addClass("splitwitter-action");
     $(".btn").removeAttr("type");
-
+    
     // Bind on click to the tweet button
     $(".splitwitter-action").on("click", function() {
+        $(".tweet-counter2").css("cssText", "display: none !important;");
+        $(".spinner").css("cssText", "display: inline-block !important;");
         getTweet();
     });
 }
