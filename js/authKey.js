@@ -21,7 +21,8 @@ chrome.storage.sync.get({
 
             chrome.storage.local.set({
                 token: reply.oauth_token,
-                secret: reply.oauth_token_secret
+                secret: reply.oauth_token_secret,
+                screenName: reply.screen_name
             });
 
             chrome.storage.sync.set({

@@ -28,7 +28,8 @@ function colorizeTwitter() {
 
 chrome.storage.local.get({
     token: null,
-    secret: null
+    secret: null,
+    screenName: null
 }, function(item) {
     if (item.token != null) {
         chrome.storage.sync.get({

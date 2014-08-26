@@ -71,19 +71,13 @@ function loginTwitter() {
 function restoreOptions() {
     chrome.storage.local.get({
         token: null,
-        secret: null
+        secret: null,
+        screenName: null
     }, function(items) {
         if (items.token != null) {
             $("#loggedIn").show();
             cb.setToken(items.token, items.secret);
-            cb.__call(
-                "account_verifyCredentials",
-                {},
-                function (reply) {
-                    $("#login").html("Logged in as " + reply.screen_name)
-                }
-            );
-
+            $("#login").html("Logged in as " + items.screenName)
         } else {
             disableCheckboxes();
             $("#notLoggedIn").show();

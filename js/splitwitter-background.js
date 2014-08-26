@@ -38,7 +38,8 @@ function setIcon(tab) {
 
     chrome.storage.local.get({
         token: null,
-        secret: null
+        secret: null,
+        screenName: null
     }, function(items) {
         if (items.token == null) {
             chrome.pageAction.setIcon({
