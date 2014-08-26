@@ -12,9 +12,9 @@
 
 function injectCode() {
     var cssLink = chrome.extension.getURL("css/inject.css");
-    $('<link rel="stylesheet" type="text/css" href="' + cssLink + '" >').appendTo("head");
+    $("<link rel='stylesheet' type='text/css' href='" + cssLink + "' >").appendTo('head');
 
-    $(".tweet-counter").removeClass( "tweet-counter" ).addClass( "tweet-counter2" );
+    $(".tweet-counter").removeClass("tweet-counter").addClass("tweet-counter2");
     $(".tweet-counter2").html("&#8734;");
 
     $(".btn").removeAttr("disabled").removeClass("tweet-action").removeClass("disabled").addClass("splitwitter-action");
@@ -22,7 +22,7 @@ function injectCode() {
 
 function colorizeTwitter() {
     var cssLink = chrome.extension.getURL("css/colorize.css");
-    $('<link rel="stylesheet" type="text/css" href="' + cssLink + '" >').appendTo("head");
+    $("<link rel='stylesheet' type='text/css' href='" + cssLink + "' >").appendTo('head');
 }
 
 chrome.storage.local.get({

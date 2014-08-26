@@ -22,7 +22,7 @@ function saveOptions() {
     });
 
     chrome.tabs.getSelected(null, function(tab) {
-        if (tab.url.indexOf('twitter.com') > -1) {
+        if (tab.url.indexOf("twitter.com") > -1) {
             chrome.tabs.reload(tab.id)
         }
     });
@@ -42,9 +42,6 @@ function disableCheckboxes() {
 }
 
 function loginTwitter() {
-    var cb = new Codebird;
-    cb.setConsumerKey(CONSUMER_KEY, CONSUMER_SECRET);
-
     cb.__call(
         "oauth_requestToken",
         {oauth_callback: "oob"},
@@ -59,7 +56,7 @@ function loginTwitter() {
                 {},
                 function (auth_url) {
                     chrome.tabs.getSelected(null, function(tab) {
-                        if (tab.url.indexOf('twitter.com') > -1) {
+                        if (tab.url.indexOf("twitter.com") > -1) {
                             window.codebird_auth = window.open(auth_url);
                         } else {
                             window.codebird_auth = window.location.replace(auth_url);
@@ -78,6 +75,15 @@ function restoreOptions() {
     }, function(items) {
         if (items.token != null) {
             $("#loggedIn").show();
+            cb.setToken(items.token, items.secret);
+            cb.__call(
+                "account_verifyCredentials",
+                {},
+                function (reply) {
+                    $("#login").html("Logged in as " + reply.screen_name)
+                }
+            );
+
         } else {
             disableCheckboxes();
             $("#notLoggedIn").show();
@@ -91,14 +97,17 @@ function restoreOptions() {
         token: null,
         secret: null
     }, function(items) {
-        document.getElementById('enabled').checked = items.enabled;
-        document.getElementById('hashtag').checked = items.hashtag;
-        document.getElementById('colorize').checked = items.colorize;
+        document.getElementById("enabled").checked = items.enabled;
+        document.getElementById("hashtag").checked = items.hashtag;
+        document.getElementById("colorize").checked = items.colorize;
     });
 
-    document.getElementById('save').addEventListener('click', saveOptions);
-    document.getElementById('enabled').addEventListener('click', checkboxState);
-    document.getElementById('login').addEventListener('click', loginTwitter);
+    document.getElementById("save").addEventListener("click", saveOptions);
+    document.getElementById("enabled").addEventListener("click", checkboxState);
+    document.getElementById("login").addEventListener("click", loginTwitter);
 }
 
-document.addEventListener('DOMContentLoaded', restoreOptions);
+var cb = new Codebird;
+cb.setConsumerKey(CONSUMER_KEY, CONSUMER_SECRET);
+
+document.addEventListener("DOMContentLoaded", restoreOptions);
