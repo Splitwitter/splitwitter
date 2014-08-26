@@ -31,6 +31,7 @@ function injectCode() {
         $(".alert-messages").removeAttr("id");
         $(".alert-messages").css("cssText", "display: initial !important;");
         $(".alert-messages .message .message-inside .message-text").html("Your Tweet was posted by Splitwitter!");
+        $(".alert-messages .message .message-inside .dismiss").css("display", "none");
 
         getTweet();
     });
