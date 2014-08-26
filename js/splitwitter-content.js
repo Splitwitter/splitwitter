@@ -72,7 +72,6 @@ function sendTweet(text) {
             function (reply) {
                 console.log(reply);
                 // Empty the Tweet box
-                alert("Jeej");
                 document.getElementById("tweet-box-mini-home-profile").innerHTML = "<div></div>";
             }
         );
