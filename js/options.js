@@ -77,7 +77,20 @@ function restoreOptions() {
         if (items.token != null) {
             $("#loggedIn").show();
             cb.setToken(items.token, items.secret);
-            $("#login").html("Logged in as " + items.screenName)
+            cb.__call(
+                "account_verifyCredentials",
+                {},
+                function (reply) {
+                    if (items.screenName != reply.screen_name) {
+                        chrome.storage.local.set({
+                            screenName: reply.screen_name
+                        });
+                        $("#login").html("Logged in as " + reply.screen_name)
+                    } else {
+                        $("#login").html("Logged in as " + items.screenName)
+                    }
+                }
+            );
         } else {
             disableCheckboxes();
             $("#notLoggedIn").show();
