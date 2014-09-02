@@ -11,10 +11,6 @@
  */
 
 function injectCode() {
-    // Adds Injection css
-    var cssLink = chrome.extension.getURL("css/inject.css");
-    $("<link rel='stylesheet' type='text/css' href='" + cssLink + "'>").appendTo('head');
-
     // Replace the character counter with infinity.
     $(".tweet-counter").removeClass("tweet-counter").addClass("tweet-counter2");
     $(".tweet-counter2").html("&#8734;");

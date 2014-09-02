@@ -23,7 +23,7 @@
     "icons": {
         "16": "img/icon16.png",
         "19": "img/icon19.png",
-        "36": "img/icon38.png",
+        "38": "img/icon38.png",
         "48": "img/icon48.png",
        "128": "img/icon128.png"
     },
@@ -32,7 +32,7 @@
         "default_icon": {
             "16": "img/icon16.png",
             "19": "img/icon19.png",
-            "36": "img/icon38.png",
+            "38": "img/icon38.png",
             "48": "img/icon48.png",
            "128": "img/icon128.png"
         },
@@ -49,6 +49,9 @@
             "*://twitter.com/*",
             "*://*.twitter.com/*"
         ],
+        "css": [
+            "css/inject.css"
+        ],
         "js": ["js/jquery-2.1.1.min.js", "js/config/twitter.config", "js/library/codebird.js", "js/splitwitter-content.js"],
         "run_at": "document_end"
     },
@@ -64,7 +67,6 @@
     ],
 
     "web_accessible_resources": [
-        "css/colorize.css",
-        "css/inject.css"
+        "css/colorize.css"
     ]
 }
